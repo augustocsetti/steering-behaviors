@@ -17,9 +17,9 @@ class Agent:
         self.position = np.array(position, dtype=float)       
         self.velocity = np.array((random.random()*2 -1,random.random()*2 -1))
         self.acceleration = np.zeros(2)
-        self.maxforce = .2
+        self.maxforce = .5
         self.maxvelocity= 3
-        # self.mass = 50 # aqui
+        self.mass = 10 # aqui
         # self.orientation = self.velocity/np.linalg.norm(self.velocity) # aqui
 
         # behavior
@@ -113,6 +113,11 @@ class Agent:
 
         #calculate forces
         force = self.behavior()
+        
+        # # combining steering forces
+        # f1 = self.wander_simple()
+        # f2 = self.flee()
+        # force = f1 + f2
 
         #apply forces
         self.applyForce(force)
@@ -132,7 +137,7 @@ class Agent:
         '''
         function to apply a force to an agent
         '''
-        self.acceleration += force         
+        self.acceleration = force / self.mass
         self.velocity += self.acceleration
         # limit velocity
         if np.linalg.norm(self.velocity) > self.maxvelocity:
@@ -140,7 +145,6 @@ class Agent:
         # if np.linalg.norm(self.velocity) < 0.5 and np.linalg.norm(self.acceleration) == 0:
         #     self.velocity = (0, 0)
         self.position += self.velocity
-        self.acceleration = (0, 0)
 
     def draw(self, window):
         '''

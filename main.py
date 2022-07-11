@@ -19,7 +19,7 @@ if __name__ == '__main__':
     #initial agents
     agents = []
     for i in range(1):
-        agents.append(Agent((int(random.random()*1600),int(random.random()*900))))
+        agents.append(Agent((int(random.random()*SCREENWIDTH),int(random.random()*SCREENHEIGHT))))
 
     run = True
     while(run):
