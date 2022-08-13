@@ -14,13 +14,15 @@ Os requisitos ou dependências para a execução do jogo estão disponíveis no 
 
 A simulação pode ser executado através do comando:<br>
 
-``` python main.py ```
+``` python steering-behavior.py ```
 
 ## Como usar
 
-- O terminal exibe o tipo de agente inserido
-- Mouse: Um clique do mouse adiciona um novo agente
+O terminal exibe o tipo de agente inserido
+- Barra de Espaço: inicia/pausa simulação
+- Mouse: um clique do mouse adiciona um novo agente
 - R: excluí o último agente inserito
+- S: ativa/desativa desenho do sensor
 
 ## Referencias
 
